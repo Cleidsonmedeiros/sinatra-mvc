@@ -7,4 +7,8 @@ class AbstractModel
         
     end
 
+    def self.db
+        SQLite3::Database.new "./db/blog.db"
+    end
+
 end

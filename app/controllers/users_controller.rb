@@ -5,7 +5,13 @@ class UsersController < AbstractController
     end
 
     def create
-        require "pry"; binding.pry
+        name = params["name"]
+        email = params["email"]
+
+        User.create(name, email)
+
+        @users = User.all
+        render("users/index")
 
     end
 
