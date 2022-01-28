@@ -4,8 +4,13 @@ class AbstractController
         ERB.new(template.read).result(binding)
     end
 
-    def initialize(params={})
+    def initialize(params={}, http=nil)
         @params = params
+        @http = http
+    end
+
+    def http
+        @http
     end
 
     def params

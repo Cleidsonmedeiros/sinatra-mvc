@@ -4,16 +4,22 @@ class UsersController < AbstractController
         render ("users/new")
     end
 
+    def index
+    end
+
     def create
         name = params["name"]
         email = params["email"]
 
-        User.create(name, email)
+        last_id = User.create(name, email)
 
-        @users = User.all
-        render("users/index")
+        http.redirect("/users/#{last_id}")
 
-        require "pry"; binding.pry
+    end
+
+    def show
+        @user = User.find(params["id"])
+        render("users/show")
 
     end
 

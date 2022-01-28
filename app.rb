@@ -9,13 +9,15 @@ get "/users/new" do
 end
 
 post "/users" do
-    controller = UsersController.new(params)
+    controller = UsersController.new(params, self)
     controller.create
     
 end
 
 get "/users/:id" do
-    
+    controller = UsersController.new(params)
+    controller.show
+
 end
 
 get "/users" do
