@@ -14,11 +14,11 @@ post "/users" do
     
 end
 
-get "/users" do
-    controller = UsersController.new(params)
-    controller.index
+get "/users/:id" do
+    
 end
 
 get "/users" do
     controller = UsersController.new(params)
+    controller.index
 end

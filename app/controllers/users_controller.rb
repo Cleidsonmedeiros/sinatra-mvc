@@ -13,6 +13,8 @@ class UsersController < AbstractController
         @users = User.all
         render("users/index")
 
+        require "pry"; binding.pry
+
     end
 
 end
