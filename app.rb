@@ -24,3 +24,14 @@ get "/users" do
     controller = UsersController.new(params)
     controller.index
 end
+
+get "/users/:id/edit" do
+    controller = UsersController.new(params)
+    controller.edit
+end
+
+post "/users/:id" do
+    controller = UsersController.new(params, self)
+    controller.update
+
+end

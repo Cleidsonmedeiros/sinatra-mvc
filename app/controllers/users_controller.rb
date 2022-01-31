@@ -5,6 +5,8 @@ class UsersController < AbstractController
     end
 
     def index
+        @users = User.all
+        render("users/index")
     end
 
     def create
@@ -17,9 +19,26 @@ class UsersController < AbstractController
 
     end
 
+    def edit
+        @user = User.find(params["id"])
+        render("users/edit")
+    
+    end
+
     def show
         @user = User.find(params["id"])
         render("users/show")
+
+    end
+
+    def update
+        id = params["id"]
+        name = params["name"]
+        email = params["email"]
+
+        result = User.update(id, name, email)
+
+        http.redirect("/users/#{id}")
 
     end
 
