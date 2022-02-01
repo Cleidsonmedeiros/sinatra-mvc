@@ -35,3 +35,8 @@ post "/users/:id" do
     controller.update
 
 end
+
+get "/users/:id/delete" do
+    controller = UsersController.new(params, self)
+    controller.delete
+end

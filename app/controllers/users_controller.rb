@@ -36,10 +36,20 @@ class UsersController < AbstractController
         name = params["name"]
         email = params["email"]
 
-        result = User.update(id, name, email)
+        User.update(id, name, email)
 
         http.redirect("/users/#{id}")
 
+    end
+
+    def delete
+        id = params["id"]
+
+        User.delete(id)
+
+        http.redirect("/users")
+    
+    
     end
 
 end

@@ -13,4 +13,9 @@ class User < AbstractModel
                     WHERE id=?", [name, email, id]
     end
 
+    def self.delete(id)
+        db.execute "DELETE FROM #{TABLE_NAME}
+                    WHERE id=?", [id]
+    end
+
 end
